@@ -19,6 +19,18 @@ if (isset($_GET['as'], $_GET['item'])){
                'user' => $_SESSION['user_id']
             ]);
         break;
+
+        case 'delete':
+            $deleteQuery = $db->prepare("
+				DELETE FROM items
+				WHERE id = :item
+				AND user = :user
+			");
+            $deleteQuery->execute([
+                'item' => $item,
+                'user' => $_SESSION['user_id']
+            ]);
+        break;
     }
 }
 header("location: index.php");

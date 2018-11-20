@@ -28,6 +28,7 @@ $items = $itemsQuery->rowCount() ? $itemsQuery : [];
                 <?php foreach ($items as $item): ?>
                     <li>
                         <span class="item<?php echo $item['done'] ? ' done':''; ?>"><?php echo $item['name'] ?></span>
+                        <a class="delete-button" href="mark.php?as=delete&item=<?php echo $item['id']; ?>">Delete</a>
                         <?php if (!$item['done']): ?>
                             <a href="mark.php?as=done&item=<?php echo $item['id'] ?>" class="done-button">Done</a>
                         <?php endif; ?>
