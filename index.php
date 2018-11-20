@@ -31,6 +31,8 @@ $items = $itemsQuery->rowCount() ? $itemsQuery : [];
                         <a class="delete-button" href="mark.php?as=delete&item=<?php echo $item['id']; ?>">Delete</a>
                         <?php if (!$item['done']): ?>
                             <a href="mark.php?as=done&item=<?php echo $item['id'] ?>" class="done-button">Done</a>
+                        <?php else: ?>
+                            <a href="mark.php?as=notdone&item=<?php echo $item['id'] ?>" class="undo-button"><strong>Undo</strong></a>
                         <?php endif; ?>
                     </li>
                 <?php endforeach; ?>

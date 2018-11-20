@@ -48,7 +48,9 @@ a {
     text-decoration: line-through;
 }
 
-.items li:hover .done-button .delete-button {
+.done-button:hover,
+.undo-button:hover,
+.delete-button:hover {
     opacity: 1;
 }
 
@@ -61,7 +63,7 @@ a {
 }
 
 /* Done Button */
-.done-button {
+.done-button, .undo-button {
     display: inline-block;
     font-size: 0.8em;
     background-color: #d9dfe1;

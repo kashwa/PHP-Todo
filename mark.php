@@ -31,6 +31,19 @@ if (isset($_GET['as'], $_GET['item'])){
                 'user' => $_SESSION['user_id']
             ]);
         break;
+
+        case 'notdone':
+            $notDoneQuery= $db->prepare("
+                UPDATE items
+                SET done = 0
+                WHERE id = :item
+                AND user = :user
+            ");
+            $notDoneQuery->execute([
+                'item' => $item,
+                'user' => $_SESSION['user_id']
+            ]);
+            break;
     }
 }
 header("location: index.php");
