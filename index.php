@@ -29,13 +29,13 @@ $items = $itemsQuery->rowCount() ? $itemsQuery : [];
                     <li>
                         <span class="item<?php echo $item['done'] ? ' done':''; ?>"><?php echo $item['name'] ?></span>
                         <?php if (!$item['done']): ?>
-                            <a href="#" class="done-button">Done</a>
+                            <a href="mark.php?as=done&item=<?php echo $item['id'] ?>" class="done-button">Done</a>
                         <?php endif; ?>
                     </li>
                 <?php endforeach; ?>
             </ul>
             <?php else: ?>
-                <p>You haven't added any items yet!</p>
+                <p><pre><strong>It's a little bit empty here, Start adding some items.</strong></pre></p>
             <?php endif; ?>
             <form class="item-add" action="add.php" method="post">
                 <input type="text" name="name" placeholder="Type Something Awesome!" class="input" autocomplete="off" required>
